@@ -3,31 +3,31 @@ import { Itodo } from "./types/types"
 import { del, openAddModal, setAddName, setAddage, infoClose, InfoFunc, setAddEamil, setAddImage, setAddStatus, setAddCity, saveAddUser, setEditName, setEditage, setEditEamil, setEditImage, setEditStatus, setEditCity, openEditModal, openEdiModal, saveEditUser, setSearch, setSelectStatus } from "./store/todoListSlice/todolictCounter/todoList"
 import { Drawer } from "antd"
 const App = () => {
-  let data: Itodo[] = useSelector((store) => store.counter.data)
-  let AddModal = useSelector((store) => store.counter.AddModal)
-  let EditModal = useSelector((store) => store.counter.EditModal)
-  let inpName = useSelector((store) => store.counter.inpName)
-  let inpAge = useSelector((store) => store.counter.inpAge)
-  let inpEmail = useSelector((store) => store.counter.inpEmail)
-  let inpImage = useSelector((store) => store.counter.inpImage)
-  let inpstatus = useSelector((store) => store.counter.inpstatus)
-  let inpCity = useSelector((store) => store.counter.inpCity)
-  let inpNameInfo = useSelector((store) => store.counter.inpNameInfo)
-  let inpAgeInfo = useSelector((store) => store.counter.inpAgeInfo)
-  let inpEmailInfo = useSelector((store) => store.counter.inpEmailInfo)
-  let inpImageInfo = useSelector((store) => store.counter.inpImageInfo)
+  let data: Itodo[] = useSelector((store: any) => store.counter.data)
+  let AddModal = useSelector((store: any) => store.counter.AddModal)
+  let EditModal = useSelector((store: any) => store.counter.EditModal)
+  let inpName = useSelector((store:any) => store.counter.inpName)
+  let inpAge = useSelector((store:any) => store.counter.inpAge)
+  let inpEmail = useSelector((store:any) => store.counter.inpEmail)
+  let inpImage = useSelector((store:any) => store.counter.inpImage)
+  let inpstatus = useSelector((store:any) => store.counter.inpstatus)
+  let inpCity = useSelector((store:any) => store.counter.inpCity)
+  let inpNameInfo = useSelector((store:any) => store.counter.inpNameInfo)
+  let inpAgeInfo = useSelector((store:any) => store.counter.inpAgeInfo)
+  let inpEmailInfo = useSelector((store:any) => store.counter.inpEmailInfo)
+  let inpImageInfo = useSelector((store:any) => store.counter.inpImageInfo)
 
-  let inpstatusInfo = useSelector((store) => store.counter.inpstatusInfo)
-  let inpCityInfo = useSelector((store) => store.counter.inpCityInfo)
-  let inpNameEdit = useSelector((store) => store.counter.inpNameEdit)
-  let inpAgeEdit = useSelector((store) => store.counter.inpAgeEdit)
-  let inpEmailEdit = useSelector((store) => store.counter.inpEmailEdit)
-  let inpImageEdit = useSelector((store) => store.counter.inpImageEdit)
-  let inpstatusEdit = useSelector((store) => store.counter.inpstatusEdit)
-  let inpCityEdit = useSelector((store) => store.counter.inpCityEdit)
-  let inpSearch = useSelector((store) => store.counter.inpSearch)
-  let openDarwel = useSelector((store) => store.counter.openDarwel)
-  let selectStatus = useSelector((store) => store.counter.selectStatus)
+  let inpstatusInfo = useSelector((store:any) => store.counter.inpstatusInfo)
+  let inpCityInfo = useSelector((store:any) => store.counter.inpCityInfo)
+  let inpNameEdit = useSelector((store:any) => store.counter.inpNameEdit)
+  let inpAgeEdit = useSelector((store:any) => store.counter.inpAgeEdit)
+  let inpEmailEdit = useSelector((store:any) => store.counter.inpEmailEdit)
+  let inpImageEdit = useSelector((store:any) => store.counter.inpImageEdit)
+  let inpstatusEdit = useSelector((store:any) => store.counter.inpstatusEdit)
+  let inpCityEdit = useSelector((store:any) => store.counter.inpCityEdit)
+  let inpSearch = useSelector((store:any) => store.counter.inpSearch)
+  let openDarwel = useSelector((store:any) => store.counter.openDarwel)
+  let selectStatus = useSelector((store:any) => store.counter.selectStatus)
   let dispatch = useDispatch()
   return (
     <>
@@ -62,7 +62,7 @@ const App = () => {
             <option value="false">Inactive</option>
           </select>
           <div className="w-[90%] m-auto flex justify-between p-[10px]">
-            <button onClick={() => dispatch(saveAddUser(false))} className="p-[4px] text-[17px] bg-[blue] text-[white] rounded-lg w-[60px]">Save</button>
+            <button onClick={() => dispatch(saveAddUser())} className="p-[4px] text-[17px] bg-[blue] text-[white] rounded-lg w-[60px]">Save</button>
             <button onClick={() => dispatch(openAddModal(false))} className="p-[4px] text-[17px] bg-[red]  text-[white] rounded-lg w-[60px]">Cansel</button>
           </div>
         </div>
@@ -80,7 +80,7 @@ const App = () => {
             <option value="false">Inactive</option>
           </select>
           <div className="w-[90%] m-auto flex justify-between p-[10px]">
-            <button onClick={() => dispatch(saveEditUser(false))} className="p-[4px] text-[17px] bg-[blue] text-[white] rounded-lg w-[60px]">Save</button>
+            <button onClick={() => dispatch(saveEditUser())} className="p-[4px] text-[17px] bg-[blue] text-[white] rounded-lg w-[60px]">Save</button>
             <button onClick={() => dispatch(openEdiModal(false))} className="p-[4px] text-[17px] bg-[red]  text-[white] rounded-lg w-[60px]">Cansel</button>
           </div>
         </div>
@@ -107,7 +107,7 @@ const App = () => {
           </tr>
         </thead>
         <tbody>
-          {data.filter((e) => e.name.toLowerCase().includes(inpSearch.toLowerCase())).filter((e) => e.status.toString().includes(selectStatus)).map((e) =>
+          {data.filter((e) => e.name.toLowerCase().includes(inpSearch.toLowerCase())).filter((e) => e.status.toString().includes(selectStatus)).map((e:any) =>
             <tr className="h-[90px]" key={e.id}>
               <td className="w-[200px]"><div className="w-[100%] flex gap-[20px]">
                 <div>

@@ -130,7 +130,7 @@ export const tableUser = createSlice({
         setSearch: (state, action) => {
             state.inpSearch = action.payload
         },
-        saveAddUser: (state, action) => {
+        saveAddUser: (state) => {
             state.data = [...state.data, { name: state.inpName, age: state.inpAge, city: state.inpCity, image: state.inpImage, email: state.inpEmail, status: state.inpstatus == "true" ? true : false, id: Date.now() }]
             state.AddModal = false
             state.inpName = '';
@@ -154,7 +154,7 @@ export const tableUser = createSlice({
         {
              state.selectStatus = action.payload
         },
-        saveEditUser: (state, action) => {
+        saveEditUser: (state) => {
             state.data = state.data.map((e) => {
               if(e.id == state.idx)
               {
@@ -178,7 +178,6 @@ export const tableUser = createSlice({
         {
             state.openDarwel = action.payload
         }
-
     }
 
 })
